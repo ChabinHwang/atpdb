@@ -46,7 +46,7 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         key: ${{ secrets.REMOTE_KEY }}
         script: |
-          docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
+          echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u chabinhwang --password-stdin
           docker pull ghcr.io/${{ github.repository_owner }}/atpdb:latest
           docker stop atpdb || true
           docker rm atpdb || true

@@ -1,24 +1,25 @@
 package com.oracle.atpdb;
 
-import org.springframework.boot.CommandLineRunner;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
-public class TestDataRunner implements CommandLineRunner {
+public class TestDataScheduler {
 
     private final AttendanceRepository repository;
+    public static int num = 1;
 
-    public TestDataRunner(AttendanceRepository repository) {
+    public TestDataScheduler(AttendanceRepository repository) {
         this.repository = repository;
     }
 
-    @Override
-    public void run(String... args) throws Exception {
+    @Scheduled(fixedRate = 10000) // 10초마다 실행
+    public void insertAndPrintAttendances() {
+        num+= 1;
         // INSERT
-        Attendance a = new Attendance("GDSC OT1234", LocalDateTime.of(2024, 9, 13, 9, 0));
+        Attendance a = new Attendance("GDG"+num, LocalDateTime.of(2024, 9, 13, 9, 0));
         repository.save(a);
         System.out.println("Attendance saved with id = " + a.getId());
 

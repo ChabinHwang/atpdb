@@ -19,7 +19,7 @@ public class TestDataScheduler {
     public void insertAndPrintAttendances() {
         num+= 1;
         // INSERT
-        Attendance a = new Attendance("GDG"+num, LocalDateTime.of(2024, 9, 13, 9, 0));
+        Attendance a = new Attendance("GDG"+num, LocalDateTime.now());
         repository.save(a);
         System.out.println("Attendance saved with id = " + a.getId());
 

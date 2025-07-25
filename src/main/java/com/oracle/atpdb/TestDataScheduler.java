@@ -15,7 +15,7 @@ public class TestDataScheduler {
         this.repository = repository;
     }
 
-    @Scheduled(fixedRate = 10000) // 10초마다 실행
+    @Scheduled(fixedRate = 60000) // 1분마다 실행
     public void insertAndPrintAttendances() {
         num+= 1;
         // INSERT

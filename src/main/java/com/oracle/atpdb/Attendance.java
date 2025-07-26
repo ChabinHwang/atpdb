@@ -27,6 +27,10 @@ public class Attendance {
         this.title = title;
         this.attendanceTime = attendanceTime;
     }
-
+    public Attendance(Long id, String title, LocalDateTime attendanceTime) {
+        this.id = id;
+        this.title = title;
+        this.attendanceTime = attendanceTime;
+    }
     // getter, setter 생략
 }

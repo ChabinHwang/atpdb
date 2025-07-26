@@ -9,7 +9,7 @@ import java.util.List;
 public class TestDataScheduler {
 
     private final AttendanceRepository repository;
-    public static int num = 1;
+    public static long num = 1L;
 
     public TestDataScheduler(AttendanceRepository repository) {
         this.repository = repository;
@@ -19,7 +19,7 @@ public class TestDataScheduler {
     public void insertAndPrintAttendances() {
         num+= 1;
         // INSERT
-        Attendance a = new Attendance("GDG"+num, LocalDateTime.now());
+        Attendance a = new Attendance(num,"GDG"+num, LocalDateTime.now());
         repository.save(a);
         System.out.println("Attendance saved with id = " + a.getId());
 
